@@ -6,7 +6,6 @@ import { sendVerificationEmail } from "@/helpers/sendVerificationEmail";
 export async function POST(request: Request) { //REQUEST
     await dbConnect(); //DB CONNECT
     try {
-        await request.json(); 
         const { username, email, password } = await request.json();
         const userAlreadyExistsByUsername = await UserModel.findOne({
             username,
